@@ -1,0 +1,145 @@
+[tool.isort]
+profile = "black"
+line_length = 120
+
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  # The following are specific to Black, you probably don't want those.
+  | blib2to3
+  | tests/data
+  | profiling
+)/
+'''
+
+
+[tool.coverage]
+
+[tool.coverage.run]
+omit = [
+    '*/__version__.py',
+    '*/__init__.py'
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    # Have to re-enable the standard pragma
+    'pragma: no cover',
+
+    # Don't complain about missing debug-only code:
+    'def __repr__',
+    'if self\.debug',
+
+    # Don't complain if tests don't hit defensive assertion code:
+    'raise AssertionError',
+    'raise NotImplementedError',
+
+    # Don't complain if non-runnable code isn't run:
+    'if 0:',
+    'if __name__ == .__main__.:'
+]
+
+[tool.coverage.html]
+directory = "reports"
+
+
+[tool.poetry]
+name = "..name of package.."
+version = "0.0.1"
+description = "... project description..."
+authors = ["Stirling Waite <stirling@aktify.com>"]  # Add generic user name & email??
+readme = "README.md"
+repository = "https://..."
+
+[tool.poetry.dependencies]
+python = "~3.8"
+pandas = "~1.0"
+numpy = "~1.19"
+scikit-learn = "~0.23"
+
+
+[tool.poetry.dev-dependencies]
+# test
+pytest = ">=5.4.3"
+pytest-cov = ">=2.10.0"
+pytest-xdist = ">=1.33.0"
+pytest-mock = ">=3.1.1"
+pytest-regressions = ">=2.0.1"
+freezegun = ">=0.3.15"
+hypothesis = ">=5.19.0"
+coverage = {extras = ["toml"], version = ">=5.2"}
+# linter
+flake8 = ">=3.8.3"
+mypy = ">=0.782"
+pylint = ">=2.5.3"
+# autoformatter
+black = "==19.10b0"
+isort = ">=4.2.5"
+# security
+bandit = ">=1.6.2"
+safety = ">=1.9.0"
+# git related
+commitizen = ">=1.23.0"
+pre-commit = ">=2.6.0"
+# doc
+pydocstyle = ">=5.0.2"
+
+
+[[tool.poetry.source]]
+name = "aktify-ds-microservices"
+url = "url-for-artifactory goes here"
+
+[tool.pylint]
+    [tool.pylint.master]
+    persistent = "yes"
+    extension-pkg-whitelist = "lxml"
+
+    [tool.pylint.message_control]
+    disable = [
+        "missing-docstring",
+        "broad-except",
+        "no-else-return",
+        "duplicate-code",
+        "too-few-public-methods",
+        "invalid-name",
+        "C0330",
+    ]
+
+    [tool.pylint.miscellaneous]
+    notes = [
+        "FIXME",
+        "XXX"
+    ]
+
+    [tool.pylint.reports]
+    output-format = "colorized"
+    score = "no"
+    never-returning-functions = "optparse.Values,sys.exit"
+
+    [tool.pylint.format]
+    max-line-length = 120
+    min-similarity-lines = 10
+
+    [tool.pylint.design]
+    max-args = 6
+    min-public-methods = 1
+
+    [tool.pylint.exceptions]
+    overgeneral-exceptions = "Exception"
+
+
+[build-system]
+requires = ["poetry>=1.0.0"]
+build-backend = "poetry.masonry.api"

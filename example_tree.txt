@@ -1,0 +1,40 @@
+.
+├── config
+│   └── dev
+├── docs
+├── jenkins
+├── aktify_ds_microservices
+│   ├── common
+│   ├── config
+│   ├── feature_store
+│   ├── metrics
+│   ├── models
+│   ├── optimization
+│   ├── system_evaluation
+│   ├── train
+│   └── training_data
+│       ├── record_set
+│       └── training_set
+└── tests
+    ├── common
+    ├── config
+    │   ├── test_basket
+    │   └── test_cvr
+    ├── features
+    │   ├── feature_store
+    │   │   └── test_member
+    │   └── test_predict_client
+    ├── metrics
+    ├── models
+    ├── optimization
+    ├── system_evaluation
+    │   └── test_evaluate_dataset
+    ├── train
+    └── training_data
+        ├── record_set
+        │   ├── test_basket
+        │   ├── test_common
+        │   └── test_cvr
+        └── training_set
+            ├── test_basket
+            └── test_cvr
