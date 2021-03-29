@@ -3,7 +3,7 @@
 │   └── dev
 ├── docs
 ├── jenkins
-├── aktify_ds_microservices
+├── science_template
 │   ├── common
 │   ├── config
 │   ├── feature_store

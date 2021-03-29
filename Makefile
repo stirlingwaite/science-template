@@ -23,7 +23,7 @@ setup-pre-commit:
 lint: flake8 pylint mypy black-check isort-check docstring-check commit-check  ## run linters
 
 pylint:
-	$(VENV_PREFIX) pylint ml_fusion_tcb run.py
+	$(VENV_PREFIX) pylint science_template run.py
 	$(VENV_PREFIX) pylint --disable=redefined-outer-name,protected-access,not-callable tests
 
 mypy:
@@ -39,7 +39,7 @@ isort-check:
 	$(VENV_PREFIX) isort --atomic --check-only .
 
 docstring-check:
-	$(VENV_PREFIX) pydocstyle ml_fusion_tcb
+	$(VENV_PREFIX) pydocstyle science_template
   
 reformat:  ## run black and isort to reformat the project
 	$(VENV_PREFIX) black .
@@ -49,11 +49,11 @@ test:  ## run tests using pytest
 	$(VENV_PREFIX) pytest -vv
 
 coverage:  ## report test coverage
-	$(VENV_PREFIX) pytest --cov-report term-missing --cov-report xml --cov=ml_fusion_tcb tests
+	$(VENV_PREFIX) pytest --cov-report term-missing --cov-report xml --cov=science_template tests
 
 secure:  ## run security check
 	$(VENV_PREFIX) safety check --full-report --cache
-	$(VENV_PREFIX) bandit -iii -lll -r ml_fusion_tcb
+	$(VENV_PREFIX) bandit -iii -lll -r science_template
   
 commit-check:
 	# Skip if NO_COMMIT_FOUND is raised

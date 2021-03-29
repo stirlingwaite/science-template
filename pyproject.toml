@@ -98,7 +98,7 @@ pydocstyle = ">=5.0.2"
 
 
 [[tool.poetry.source]]
-name = "aktify-ds-microservices"
+name = "science_template"
 url = "url-for-artifactory goes here"
 
 [tool.pylint]
